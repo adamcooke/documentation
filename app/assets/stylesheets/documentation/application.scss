@@ -1,0 +1,68 @@
+/*
+ *= require documentation/reset
+ *= require_self
+ */
+ 
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size:14px; 
+}
+
+header {
+  background:#0790c7;
+  border-bottom:2px solid darken(#0790c7, 12%);
+  height:43px;
+  position:fixed;
+  top:0;
+  width:100%;
+  h1 {
+    padding:14px 0 0 15px;
+    a {
+      display:block;
+      background:image-url('documentation/logo-white.svg') no-repeat;
+      background-size:200px;
+      text-indent:-40000px;
+    }
+  }
+}
+
+nav.pages {
+  position:fixed;
+  top:45px;
+  bottom:0;
+  border-right:1px solid #b3c6cd;
+  width:250px;
+  background:#edf8fd;
+  div.inner {
+    padding:15px;
+    ul {
+      line-height:1.7;
+      li {
+        a {
+          text-decoration:none;
+          color:#0790c7;
+        }
+        ul {
+          margin-left:15px;
+          li {
+            
+          }
+        }
+      }
+    }
+  }
+}
+
+section.content {
+  position:fixed;
+  top:45px;
+  left:251px;
+  bottom:0;
+  right:0;
+  
+  background:#fff;
+  
+  div.inner {
+    padding:35px;
+  }
+}
