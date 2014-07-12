@@ -1,1 +1,12 @@
-%p This is the index page... there's no actual page here!
+%section.welcome
+  %h1 Welcome to Documentation
+  %h2 Choose a page from the menu on the left of the screen to begin.
+  
+  - if Documentation.config.developer_tips
+    .override
+      %p
+        You can override this page by adding a new view in <code>app/views/documentation/pages/index</code>.
+        Alternatively, you can disable this message by setting <code>developer_tips</code> to false in the
+        Documentation configuration.
+      
+    

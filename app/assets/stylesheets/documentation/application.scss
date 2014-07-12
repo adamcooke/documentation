@@ -180,3 +180,24 @@ a.button, input.button {
 	font-size:1.2em;
 	font-weight:600;
 }
+
+section.welcome {
+  text-align:center;
+  margin:60px 0;
+  background:image-url('documentation/logo-black.svg') no-repeat top center;
+  background-size:100px;
+  padding-top:150px;
+  h1 { font-size:3.6em; font-weight:300;}
+  h2 { color:#aaa; margin-top:2px; font-size:1.5em; font-weight:300;}
+  .override {
+    background:#fdffe0;
+    width:80%;
+    margin:50px auto;
+    font-size:1.1em;
+    line-height:1.7;
+    padding:25px;
+    border:1px solid #ced0ad;
+    color:#727457;
+    code { font-weight:bold;  }
+  }
+}
