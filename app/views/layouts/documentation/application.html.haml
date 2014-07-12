@@ -6,14 +6,12 @@
     = javascript_include_tag 'documentation/application'
     = csrf_meta_tags
   %body
-    %header
-      %h1= link_to "Documentation", root_path
-      %p.back= link_to "&larr; Back to site".html_safe, "/", :class => ''
+    = render 'layouts/documentation/header'
     %nav.pages
       .inner
         = render 'layouts/documentation/navigation'
-
     %section.content
       .inner  
         = flash_messages
         = yield
+        
