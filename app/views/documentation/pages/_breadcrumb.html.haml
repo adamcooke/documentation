@@ -1,0 +1,5 @@
+%nav.breadcrumb
+  %ul
+    %li= link_to "Home", root_path
+    - for page in @page.breadcrumb
+      %li= link_to page.title, page_path(page.full_permalink)

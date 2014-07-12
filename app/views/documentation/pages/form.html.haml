@@ -1,0 +1,13 @@
+- @page_title = @page.breadcrumb.reverse.map(&:title).join(" - ")
+
+%section.content
+  = render 'breadcrumb', :pages => @page.breadcrumb
+  = form_for @page, :url => @page.new_record? ? new_page_path(@page.parent.full_permalink) : edit_page_path(@page.full_permalink), :html => {:class => 'pageForm'} do |f|
+    %p.title= f.text_field :title, :placeholder => 'Enter a title for this page'
+    %p.content= f.text_area :content
+  
+    %dl
+      %dt= f.label :permalink
+      %dd= f.text_field :permalink, :placeholder => "Automatically generated if left blank"
+  
+    %p.submit= f.submit :class => 'button'

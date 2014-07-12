@@ -5,6 +5,7 @@ module Documentation
     validates :position, :presence => true
     
     default_scope -> { order(:position) }
+    scope :roots, -> { where(:parent_id => nil) }
     
     belongs_to :parent, :class_name => 'Documentation::Page', :foreign_key => 'parent_id'
     
@@ -37,7 +38,18 @@ module Documentation
     def breadcrumb
       @breadcrumb ||= [parents, self].flatten
     end
-
+    
+    #
+    # Return the path where this page can be viewed in the site
+    #
+    def preview_path
+      if path = Documentation.config.preview_path_prefix
+        "#{path}#{full_permalink}"
+      else
+        nil
+      end
+    end
+    
     #
     # Return a full permalink tot his page
     #

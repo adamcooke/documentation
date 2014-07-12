@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title Documentation
+    %title= @page_title
     = stylesheet_link_tag 'documentation/application'
     = javascript_include_tag 'documentation/application'
     = csrf_meta_tags
@@ -10,18 +10,9 @@
       %h1= link_to "Documentation", root_path
     %nav.pages
       .inner
-        %ul
-          %li= link_to "Homepage"
-          %li= link_to "Sub section"
-          %li
-            = link_to "Somethign else"
-            %ul
-              %li= link_to "A sub page"
-              %li= link_to "Another sub page"
-              %li= link_to "Blah blah blahb a"
-          %li= link_to "Tnother page"
+        = render 'layouts/documentation/navigation'
 
     %section.content
-      .inner
-        %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      .inner  
+        = flash_messages
         = yield

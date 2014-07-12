@@ -5,11 +5,7 @@ module Documentation
   class MarkdownRenderer < Redcarpet::Render::HTML
   
     include ActionView::Helpers::TagHelper
-  
-    def header(text, level, anchor)
-      "<h#{level} id='#{anchor}'><a href='##{anchor}' class='anchor'>Link</a>#{text}</h#{level}>"
-    end
-  
+    
     def block_code(code, language)
       title = nil
       code.gsub!(/\A\:\:(.*)$/) { title = $1 ; nil }

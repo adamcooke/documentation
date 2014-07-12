@@ -1,26 +1,32 @@
 /*
  *= require documentation/reset
  *= require_self
+ *= require documentation/markdown
+ *= require documentation/page_form
  */
- 
+
+$font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+input, textarea { font-family:$font;}
+
 body {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: $font;
   font-size:14px; 
 }
 
 header {
-  background:#0790c7;
-  border-bottom:2px solid darken(#0790c7, 12%);
-  height:43px;
+  background:#354050;
+  height:45px;
   position:fixed;
   top:0;
   width:100%;
   h1 {
-    padding:14px 0 0 15px;
+    margin:10px 0 0 15px;
     a {
       display:block;
       background:image-url('documentation/logo-white.svg') no-repeat;
-      background-size:200px;
+      background-size:20px;
+      width:20px;
+      height:20px;
       text-indent:-40000px;
     }
   }
@@ -30,24 +36,28 @@ nav.pages {
   position:fixed;
   top:45px;
   bottom:0;
-  border-right:1px solid #b3c6cd;
-  width:250px;
-  background:#edf8fd;
+  width:249px;
+  border-right:1px solid #E2E7F1;
+  background:#F5F7FB;
+  font-size:0.9em;
   div.inner {
-    padding:15px;
+    padding:15px 0;
     ul {
-      line-height:1.7;
       li {
         a {
           text-decoration:none;
-          color:#0790c7;
-        }
-        ul {
-          margin-left:15px;
-          li {
-            
+          color:#333;
+          padding:5px 15px;
+          display:block;
+          &:hover {
+            background:#e2e7f1;
+          }
+          &.active {
+            background:#35A4D4;
+            color:#fff;
           }
         }
+        ul li a { padding-left:35px;}
       }
     }
   }
@@ -56,13 +66,117 @@ nav.pages {
 section.content {
   position:fixed;
   top:45px;
-  left:251px;
+  left:250px;
   bottom:0;
   right:0;
-  
   background:#fff;
-  
-  div.inner {
-    padding:35px;
+  overflow-y:scroll;
+}
+
+nav.breadcrumb {
+	font-size:0.85em;
+	background:#E2E7F1;
+	margin-bottom:10px;
+	padding:10px 35px;
+	ul {
+		overflow:hidden;
+		li {
+			float:left; margin-right:7px;
+			&:after { content:"\21D2"; padding-left:7px; color:#abb6cd;}
+			&:last-child:after { color:#E2E7F1; padding-left:0;}
+			a {color:#8e9bb4;}
+			a:hover { color:#748098;}
+			&:last-child a { text-decoration:none;}
+			&:last-child a:hover {color:#8e9bb4;}
+		}
+	}
+}
+
+section.page {
+	margin:25px 35px 35px 35px;
+	h1 {
+	  font-size:2.2em;
+	  font-weight:300 ;
+	  margin-bottom:4px;
+	}
+
+  p.updated {
+    color:#999;
+    font-size:0.85em;
+    margin-bottom:10px;
   }
+	
+	p.previewLink {
+	  float:right;
+	  margin-top:4px;
+	}
+	
+	p.adminButtons {
+		border-top:1px dashed #ddd;
+		padding:15px 0;
+		margin-top:30px;
+		text-align:right;
+	}
+	
+	form.reordering {
+		padding:0 0 0 0;
+	}
+	form.reordering ul {
+	  padding:25px 0 0 0;
+	}
+	form.reordering ul li {
+		background:#F5F7FB;
+		font-size:1.1em;
+		margin-bottom:7px;
+		padding:10px;
+		cursor:pointer;
+		border:1px dashed #748098;
+		background:image-url('documentation/page.svg') #F5F7FB no-repeat 16px 10px;
+		background-size:14px;
+		padding-left:40px;
+	}
+	
+}
+
+a.button, input.button {
+  display:inline-block;
+	border:2px solid lighten(#9357B0, 20%);
+	text-decoration:none;
+	background:#fff;
+	color:#9357B0;
+	font-weight:500;
+	padding:3px 10px;
+	font-size:12px;
+	background:#fff;
+	border-radius:5px;
+	margin-left:5px;
+	appearance:none;
+	&.delete {
+		color:#F6744F;
+		border-color:lighten(#F6744F, 20%);
+	}
+	&.new {
+		color:#65BA65;
+		border-color:lighten(#65BA65, 20%);
+	}
+	&.preview {
+	  color:#999;
+	  border-color:#ccc;
+	}
+}
+
+#flash-notice {
+	background:#65BA65;
+	padding:15px 35px;
+	color:#fff;
+	font-size:1.2em;
+	font-weight:600;
+}
+
+#flash-alert {
+	background:#F6744F;
+	padding:15px 35px;
+	color:#fff;
+	font-size:1.2em;
+	font-weight:600;
 }

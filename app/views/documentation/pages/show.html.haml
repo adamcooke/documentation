@@ -1,0 +1,17 @@
+- @page_title = @page.breadcrumb.reverse.map(&:title).join(" - ")
+= render 'breadcrumb', :pages => @page.breadcrumb
+
+%section.page
+  - if @page.preview_path
+    %p.previewLink= link_to "View in website", @page.preview_path, :class => 'button preview'
+  %h1= @page.title
+  %p.updated Last updated #{@page.updated_at.to_s(:long_ordinal)}
+  .markdown
+    ~ preserve(parse_content(@page.compiled_content.to_s.html_safe || @page.content))
+
+  %p.adminButtons
+    = link_to "New", new_page_path(@page.full_permalink), :class => 'button new'
+    = link_to "Edit", edit_page_path(@page.full_permalink), :class => 'button edit'
+    - if @page.parents[-1]
+      = link_to "Reorder", page_positioning_path(@page.parents[-1].full_permalink), :class => 'button edit'
+    = link_to "Delete", delete_page_path(@page.full_permalink), :class => 'button delete', :method => :delete, :data => {:confirm => "Are you sure you wish to remove this page?"}

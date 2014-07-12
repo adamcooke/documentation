@@ -1,0 +1,38 @@
+form.pageForm {
+	padding:15px 35px 25px 35px;
+	margin-top:10px;
+	input[type=text], textarea {
+	  width:100%;
+	  border:1px solid #c7cfde;
+	  padding:6px;
+	  background:#F5F7FB;
+	}
+	
+	p.title {
+		margin-bottom:15px;
+		input { font-size:1.3em; font-weight:normal; padding:10px;}
+	}
+	
+	p.content {
+		textarea {
+			width:100%;
+			min-height:300px;
+			font-size:0.9em;
+			line-height:1.4;
+			padding:10px;
+			font-family:'Consolas', Monaco, 'Courier New', Courier, fixed;
+			resize:none;
+		}
+	}
+	
+	dl {
+		margin:15px 0;
+		dt { width:120px; float:left; color:#999;padding-top:6px;}
+		dd { margin-left:160px; }
+		dd input { width:100%; font-size:1.1em;}
+	}
+	
+	p.submit {
+		text-align:right;
+	}
+}

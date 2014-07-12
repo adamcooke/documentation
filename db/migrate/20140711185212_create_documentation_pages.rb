@@ -5,6 +5,7 @@ class CreateDocumentationPages < ActiveRecord::Migration
       t.text :content, :compiled_content
       t.integer :parent_id, :position
       t.boolean :favourite, :default => false
+      t.timestamps
     end
   end
 end
