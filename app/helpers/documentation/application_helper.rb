@@ -3,7 +3,9 @@ module Documentation
     
     def parse_content(content)
       content.gsub!("<p class=''>{{nav}}</p>") do 
-        items = @page.children.map { |c| "<li>#{link_to c.title, page_path(c.full_permalink)}" }.join
+        children = @page.children
+        children = children.select { |c| authorizer.can_view_page?(c) }
+        items = children.map { |c| "<li>#{link_to c.title, page_path(c.full_permalink)}" }.join
         "<ul class='pages'>#{items}</ul>"
       end
       content

@@ -3,7 +3,13 @@ module Documentation
 
     before_filter :find_page, :only => [:show, :edit, :new, :destroy, :positioning]
     
+    def show
+      authorizer.check! :view_page, @page
+    end
+    
     def edit
+      authorizer.check! :edit_page, @page
+      
       if request.patch?
         if @page.update_attributes(safe_params)
           redirect_to page_path(@page.full_permalink), :notice => "Page has been saved successfully."
@@ -14,6 +20,8 @@ module Documentation
     end
 
     def new
+      authorizer.check! :add_page, @page
+      
       parent = @page
       @page = Page.new(:title => "Untitled Page")
       if @page.parent = parent
@@ -31,11 +39,13 @@ module Documentation
     end
 
     def destroy
+      authorizer.check! :delete_page, @page
       @page.destroy
       redirect_to @page.parent ? page_path(@page.parent.full_permalink) : root_path, :notice => "Page has been removed successfully."
     end
 
     def positioning
+      authorizer.check! :reposition_page, @page
       @pages = @page ? @page.children : Page.roots
       if request.post?
         Page.reorder(@page, params[:order])

@@ -8,9 +8,16 @@
   %p.updated Last updated #{@page.updated_at.to_s(:long_ordinal)}
   .markdown
     ~ preserve(parse_content(@page.compiled_content.to_s.html_safe || @page.content))
-
+  
   %p.adminButtons
-    = link_to "New", new_page_path(@page.full_permalink), :class => 'button new'
-    = link_to "Edit", edit_page_path(@page.full_permalink), :class => 'button edit'
-    = link_to "Reorder", page_positioning_path(@page.parents[-1].try(:full_permalink)), :class => 'button edit'
-    = link_to "Delete", delete_page_path(@page.full_permalink), :class => 'button delete', :method => :delete, :data => {:confirm => "Are you sure you wish to remove this page?"}
+    - if authorizer.can_add_page?(@page)
+      = link_to "New", new_page_path(@page.full_permalink), :class => 'button new'
+  
+    - if authorizer.can_edit_page?(@page)
+      = link_to "Edit", edit_page_path(@page.full_permalink), :class => 'button edit'
+  
+    - if authorizer.can_reposition_page?(@page)
+      = link_to "Reorder", page_positioning_path(@page.parents[-1].try(:full_permalink)), :class => 'button edit'
+  
+    - if authorizer.can_delete_page?(@page)
+      = link_to "Delete", delete_page_path(@page.full_permalink), :class => 'button delete', :method => :delete, :data => {:confirm => "Are you sure you wish to remove this page?"}

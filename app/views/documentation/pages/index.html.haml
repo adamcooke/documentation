@@ -10,5 +10,7 @@
         Documentation configuration.
       
   %p.new
-    = link_to "Create new root page", new_page_path, :class => 'button new'
-    = link_to "Re-order root pages", page_positioning_path, :class => 'button'
+    - if authorizer.can_add_page?(nil)
+      = link_to "Create new root page", new_page_path, :class => 'button new'
+    - if authorizer.can_reposition_page?(nil)
+      = link_to "Re-order root pages", page_positioning_path, :class => 'button'

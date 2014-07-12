@@ -6,9 +6,11 @@ require 'dynamic_form'
 require 'ostruct'
 
 require 'documentation/version'
+require 'documentation/errors'
 require 'documentation/engine'
 require 'documentation/markdown_renderer'
 require 'documentation/config'
+
 
 module Documentation
 end
