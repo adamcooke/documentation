@@ -3,9 +3,6 @@ module Documentation
 
     before_filter :find_page, :only => [:show, :edit, :new, :destroy, :positioning]
     
-    def show
-    end
-    
     def edit
       if request.patch?
         if @page.update_attributes(safe_params)
@@ -19,8 +16,9 @@ module Documentation
     def new
       parent = @page
       @page = Page.new(:title => "Untitled Page")
-      @page.parent = parent
-      @page.parents = parent.breadcrumb
+      if @page.parent = parent
+        @page.parents = parent.breadcrumb
+      end
 
       if request.post?
         @page.attributes = safe_params
@@ -47,7 +45,9 @@ module Documentation
     private
 
     def find_page
-      @page = Page.find_from_path(params[:path])
+      if params[:path]
+        @page = Page.find_from_path(params[:path])
+      end
     end
 
     def safe_params

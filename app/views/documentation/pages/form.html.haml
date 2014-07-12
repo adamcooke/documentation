@@ -2,7 +2,7 @@
 
 %section.content
   = render 'breadcrumb', :pages => @page.breadcrumb
-  = form_for @page, :url => @page.new_record? ? new_page_path(@page.parent.full_permalink) : edit_page_path(@page.full_permalink), :html => {:class => 'pageForm'} do |f|
+  = form_for @page, :url => @page.new_record? ? new_page_path(@page.parent ? @page.parent.full_permalink : nil) : edit_page_path(@page.full_permalink), :html => {:class => 'pageForm'} do |f|
     %p.title= f.text_field :title, :placeholder => 'Enter a title for this page'
     %p.content= f.text_area :content
   

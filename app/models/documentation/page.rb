@@ -36,7 +36,7 @@ module Documentation
     # Return a full breadcrumb to this page (as it has been loaded)
     #
     def breadcrumb
-      @breadcrumb ||= [parents, self].flatten
+      @breadcrumb ||= [parents, new_record? ? nil : self].flatten.compact
     end
     
     #
