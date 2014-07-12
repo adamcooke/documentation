@@ -8,6 +8,7 @@
   %body
     %header
       %h1= link_to "Documentation", root_path
+      %p.back= link_to "&larr; Back to site".html_safe, "/", :class => ''
     %nav.pages
       .inner
         = render 'layouts/documentation/navigation'

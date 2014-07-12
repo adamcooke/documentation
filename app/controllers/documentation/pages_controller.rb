@@ -36,6 +36,7 @@ module Documentation
     end
 
     def positioning
+      @pages = @page ? @page.children : Page.roots
       if request.post?
         Page.reorder(@page, params[:order])
         render :json => {:status => 'ok'}

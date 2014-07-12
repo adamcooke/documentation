@@ -1,15 +1,22 @@
-- @page_title = @page.breadcrumb.reverse.map(&:title).join(" - ")
-= render 'breadcrumb', :pages => @page.breadcrumb
+- if @page
+  - @page_title = @page.breadcrumb.reverse.map(&:title).join(" - ")
+  = render 'breadcrumb', :pages => @page.breadcrumb
+- else
+  - @page_title = "Reorder root pages"
+  = render 'breadcrumb', :pages => []
 
 %section.page
-  %h1= @page.title
+  %h1= @page ? @page.title : 'Re-order root pages'
 
-  = form_tag page_positioning_path(@page.full_permalink), :class => 'reordering' do 
+  = form_tag page_positioning_path(@page.try(:full_permalink)), :class => 'reordering' do 
     %ul
-      - for child in @page.children
+      - for child in @pages
         %li
           = child.title
           = hidden_field_tag 'order[]', child.id
   
   %p.adminButtons
-    = link_to "Back to page", page_path(@page.full_permalink), :class => 'button edit'
+    - if @page
+      = link_to "Back to page", page_path(@page.full_permalink), :class => 'button edit'
+    - else
+      = link_to "Back to homepage", root_path, :class => 'button edit'

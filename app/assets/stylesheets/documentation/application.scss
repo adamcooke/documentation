@@ -21,6 +21,7 @@ header {
   width:100%;
   h1 {
     margin:10px 0 0 15px;
+    float:left;
     a {
       display:block;
       background:image-url('documentation/logo-white.svg') no-repeat;
@@ -29,6 +30,12 @@ header {
       height:20px;
       text-indent:-40000px;
     }
+  }
+  p.back {
+    float:right;
+    margin:14px 15px 0 0;
+    a { color:#97a4b7; text-decoration:none; }
+    a:hover { color:#fff;}
   }
 }
 
