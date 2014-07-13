@@ -30,6 +30,13 @@ module Documentation
       end
       
       #
+      # Reset an index to have no data within it
+      #
+      def reset
+        true
+      end
+      
+      #
       # Add or update an page in the index
       #
       def index(page)
