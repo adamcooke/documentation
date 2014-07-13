@@ -18,7 +18,12 @@ module Documentation
     end
     
     before_save :compile_content
-    after_commit :index
+    
+    #
+    # Ensure the page is updated in the index after saving/destruction
+    #
+    after_commit :index, :on => [:create, :update]
+    after_commit :delete_from_index, :on => :destroy
 
     #
     # Store all the parents of this object. THis is automatically populated when it is loaded
@@ -120,6 +125,15 @@ module Documentation
     def index
       if searcher = Documentation.config.searcher
         searcher.index(self)
+      end
+    end
+    
+    #
+    # Delete this page from the index
+    #
+    def delete_from_index
+      if searcher = Documentation.config.searcher
+        searcher.delete(self)
       end
     end
     

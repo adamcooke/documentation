@@ -9,20 +9,30 @@ module Documentation
         setup
       end
       
+      #
+      # Run whatever initial set up is needed
+      #
       def setup
       end
       
+      #
+      # Search for a page from the index
+      #
       def search(query, options = {})
         []
       end
       
-      def index(page)
+      #
+      # Delete a page from the index
+      #
+      def delete(page)
+        false
       end
       
-      def index_all
-        Documentation::Page.all.each do |page|
-          index(page)
-        end
+      #
+      # Add or update an page in the index
+      #
+      def index(page)
       end
       
     end
