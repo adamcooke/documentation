@@ -18,6 +18,7 @@ module Documentation
     end
     
     before_save :compile_content
+    after_commit :index
 
     #
     # Store all the parents of this object. THis is automatically populated when it is loaded
@@ -111,6 +112,25 @@ module Documentation
       mr.page = self
       rc = Redcarpet::Markdown.new(mr, :space_after_headers => true, :fenced_code_blocks => true, :no_intra_emphasis => true, :highlight => true)
       self.compiled_content = rc.render(self.content.to_s).html_safe
+    end
+    
+    #
+    # Index this page
+    #
+    def index
+      if searcher = Documentation.config.searcher
+        searcher.index(self)
+      end
+    end
+    
+    #
+    # Find a page using the searcher if one exists otherwise just fall back to AR
+    # searching. Returns a Documentation::SearchResult object.
+    #
+    def self.search(query, options = {})
+      if searcher = Documentation.config.searcher
+        searcher.search(query, options)
+      end
     end
 
     #

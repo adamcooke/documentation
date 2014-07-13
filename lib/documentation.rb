@@ -9,9 +9,10 @@ require 'documentation/version'
 require 'documentation/errors'
 require 'documentation/engine'
 require 'documentation/markdown_renderer'
-require 'documentation/config'
 require 'documentation/view_helpers'
-
+require 'documentation/searchers/abstract'
+require 'documentation/search_result'
+require 'documentation/config'
 
 module Documentation
 end

@@ -1,4 +1,5 @@
 require 'documentation/authorizer'
+require 'documentation/searchers/simple'
 
 module Documentation
   
@@ -14,7 +15,10 @@ module Documentation
     :developer_tips => true,
 
     # The authorizer to use
-    :authorizer => Documentation::Authorizer
+    :authorizer => Documentation::Authorizer,
+    
+    # The searcher to use
+    :searcher => Documentation::Searchers::Simple.new
   }
   
   #
