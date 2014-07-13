@@ -4,6 +4,7 @@ module Documentation
     attr_accessor :query
     attr_accessor :time
     attr_accessor :raw_results
+    attr_accessor :results
     attr_accessor :page
     attr_accessor :per_page
     attr_accessor :total_results
