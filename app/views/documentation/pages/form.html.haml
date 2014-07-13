@@ -3,6 +3,7 @@
 %section.content
   = documentation_breadcrumb_for @page
   = form_for @page, :url => @page.new_record? ? new_page_path(@page.parent ? @page.parent.full_permalink : nil) : edit_page_path(@page.full_permalink), :html => {:class => 'pageForm'} do |f|
+    = error_messages_for @page
     %p.title= f.text_field :title, :placeholder => t('.title_placeholder')
     %p.content= f.text_area :content, :placeholder => t('.content_placeholder')
     %dl

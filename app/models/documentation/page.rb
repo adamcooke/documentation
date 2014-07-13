@@ -3,6 +3,7 @@ module Documentation
     
     validates :title, :presence => true
     validates :position, :presence => true
+    validates :permalink, :presence => true, :uniqueness => {:scope => :parent_id}
     
     default_scope -> { order(:position) }
     scope :roots, -> { where(:parent_id => nil) }
@@ -10,13 +11,13 @@ module Documentation
     belongs_to :parent, :class_name => 'Documentation::Page', :foreign_key => 'parent_id'
     
     before_validation do
-      self.permalink = self.title.parameterize if self.title && self.permalink.blank?
       if self.position.blank?
         last_position = self.class.unscoped.where(:parent_id => self.parent_id).order(:position => :desc).first
         self.position = last_position ? last_position.position + 1 : 1
       end
     end
     
+    before_validation :set_permalink
     before_save :compile_content
     
     #
@@ -30,7 +31,23 @@ module Documentation
     # from a path
     #
     attr_accessor :parents
-
+    
+    #
+    # Set the permalink for this page
+    #
+    def set_permalink
+      proposed_permalink = self.title.parameterize
+      index = 1
+      while self.permalink.blank?
+        if self.class.where(:permalink => proposed_permalink, :parent_id => self.parent_id).exists?
+          index += 1
+          proposed_permalink = self.title.parameterize + "-#{index}"
+        else
+          self.permalink = proposed_permalink
+        end
+      end
+    end
+    
     #
     # Return a default empty array for parents
     #
