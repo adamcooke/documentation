@@ -10,6 +10,7 @@ require 'documentation/errors'
 require 'documentation/engine'
 require 'documentation/markdown_renderer'
 require 'documentation/config'
+require 'documentation/view_helpers'
 
 
 module Documentation

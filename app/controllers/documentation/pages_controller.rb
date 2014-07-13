@@ -1,5 +1,5 @@
 module Documentation
-  class PagesController < ApplicationController
+  class PagesController < Documentation::ApplicationController
 
     before_filter :find_page, :only => [:show, :edit, :new, :destroy, :positioning]
     

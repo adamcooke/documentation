@@ -1,4 +1,4 @@
-div.markdown {
+div.documentationMarkdown {
 	a { color:#35A4D4; text-decoration:none; border-bottom:1px solid #35A4D4; font-weight:600;}
   
 	h1, h2 { font-size:1.6em; font-weight:300; margin:20px 0; border-bottom:1px solid #aecdda; padding-bottom:2px; color:#35A4D4;}
@@ -8,7 +8,7 @@ div.markdown {
 
 	p { margin:20px 0; line-height:1.8;}
 
-	ul, ol { line-height:1.8em;  margin-left:40px; }
+	ul, ol { line-height:1.8em; margin:20px 0; margin-left:40px; }
 	ul li { background:image-url('documentation/pin.svg') no-repeat 0 5px; background-size:13px; padding-left:25px;}
 	ol { margin-left:65px;}
 	ol li { margin-bottom:20px;padding-left:15px;}

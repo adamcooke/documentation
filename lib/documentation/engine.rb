@@ -9,10 +9,21 @@ module Documentation
           app.config.paths["db/migrate"] << expanded_path
         end
       end
+      
+      # Load view helpers for the base application
+      ActiveSupport.on_load(:action_view) do
+        ActionView::Base.send :include, Documentation::ViewHelpers
+      end
     end
     
     generators do
       require 'documentation/generators/route_generator'
+    end
+    
+    def self.mounted_path
+      if route = Rails.application.routes.routes.select { |r| r.app == self }.first
+        route.path.spec.to_s
+      end
     end
     
   end

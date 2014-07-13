@@ -1,9 +1,9 @@
 - if @page
   - @page_title = @page.breadcrumb.reverse.map(&:title).join(" - ")
-  = render 'breadcrumb', :pages => @page.breadcrumb
+  = documentation_breadcrumb_for @page
 - else
   - @page_title = "Reorder root pages"
-  = render 'breadcrumb', :pages => []
+  = documentation_breadcrumb_for nil
 
 %section.page
   %h1= @page ? @page.title : 'Re-order root pages'

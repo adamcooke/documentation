@@ -107,11 +107,10 @@ module Documentation
     # Create the compiled content
     #
     def compile_content
-      if self.content_changed?
-        mr = Documentation::MarkdownRenderer.new
-        rc = Redcarpet::Markdown.new(mr, :space_after_headers => true, :fenced_code_blocks => true, :no_intra_emphasis => true, :highlight => true)
-        self.compiled_content = rc.render(self.content.to_s).html_safe
-      end
+      mr = Documentation::MarkdownRenderer.new
+      mr.page = self
+      rc = Redcarpet::Markdown.new(mr, :space_after_headers => true, :fenced_code_blocks => true, :no_intra_emphasis => true, :highlight => true)
+      self.compiled_content = rc.render(self.content.to_s).html_safe
     end
 
     #
