@@ -13,6 +13,9 @@ body {
   font-size:14px; 
 }
 
+//
+// Main page header
+//
 header {
   background:#354050;
   height:45px;
@@ -39,6 +42,9 @@ header {
   }
 }
 
+//
+// Left-side navigation
+//
 nav.pages {
   position:fixed;
   top:45px;
@@ -70,6 +76,9 @@ nav.pages {
   }
 }
 
+//
+// Main content area
+//
 section.content {
   position:fixed;
   top:45px;
@@ -80,6 +89,9 @@ section.content {
   overflow-y:scroll;
 }
 
+//
+// The breadcrumb
+//
 nav.breadcrumb {
 	font-size:0.85em;
 	background:#E2E7F1;
@@ -99,6 +111,9 @@ nav.breadcrumb {
 	}
 }
 
+//
+// A page 
+//
 section.page {
 	margin:25px 35px 35px 35px;
 	h1 {
@@ -145,6 +160,9 @@ section.page {
 	
 }
 
+//
+// Generic button style
+//
 a.button, input.button {
   display:inline-block;
 	border:2px solid lighten(#9357B0, 20%);
@@ -172,6 +190,9 @@ a.button, input.button {
 	}
 }
 
+//
+// Flash message - for notices
+//
 #flash-notice {
 	background:#65BA65;
 	padding:15px 35px;
@@ -180,6 +201,9 @@ a.button, input.button {
 	font-weight:600;
 }
 
+//
+// Flash message - for alerts
+//
 #flash-alert {
 	background:#F6744F;
 	padding:15px 35px;
@@ -188,6 +212,9 @@ a.button, input.button {
 	font-weight:600;
 }
 
+//
+// Welcome message on homepage
+//
 section.welcome {
   text-align:center;
   margin:60px 0;
@@ -206,5 +233,28 @@ section.welcome {
     border:1px solid #ced0ad;
     color:#727457;
     code { font-weight:bold;  }
+  }
+}
+
+//
+// Access denied
+//
+section.accessDenied {
+  width:400px;
+  margin:100px auto;
+  background:lighten(#354050, 70%);
+  text-align:center;
+  h2 {
+    background:#354050;
+    color:#fff;
+    padding:15px;
+    font-size:1.5em;
+    font-weight:300;
+  }
+  p {
+    padding:15px;
+    line-height:1.5;
+    font-size:0.9em;
+    color:lighten(#354050, 30%);
   }
 }

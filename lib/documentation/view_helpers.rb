@@ -40,6 +40,34 @@ module Documentation
     end
     
     #
+    # Return a default navigation tree for the given page
+    #
+    def documentation_navigation_tree_for(page)
+      String.new.tap do |s|
+        s << "<ul>"
+        if page.is_a?(::Documentation::Page)
+          page.navigation.select { |p,c| documentation_authorizer.can_view_page?(p) }.each do |p, children|
+            s << "<li>"
+            s << "<a #{page == p ? "class='active'" : ''} href='#{documentation_doc_root}/#{p.full_permalink}'>#{p.title}</a>"
+            unless children.empty?
+              s << "<ul>"
+              children.select { |c| documentation_authorizer.can_view_page?(c) }.each do |p|
+                s << "<li><a #{page == p ? "class='active'" : ''} href='#{documentation_doc_root}/#{p.full_permalink}'>#{p.title}</a></li>"
+              end
+              s << "</ul>"
+            end
+            s << "</li>"            
+          end
+        else
+          ::Documentation::Page.roots.each do |page|
+            s << "<li><a href='#{documentation_doc_root}/#{page.full_permalink}'>#{page.title}</a></li>"
+          end
+        end
+        s << "</ul>"
+      end.html_safe
+    end
+    
+    #
     # Return appropriate content for a given page
     #
     def documentation_content_for(page)

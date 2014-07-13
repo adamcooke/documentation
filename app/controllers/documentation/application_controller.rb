@@ -1,6 +1,10 @@
 module Documentation
   class ApplicationController < ActionController::Base
     
+    rescue_from Documentation::AccessDeniedError do |e|
+      render :template => 'documentation/shared/access_denied', :layout => false
+    end
+    
     private
     
     def authorizer
