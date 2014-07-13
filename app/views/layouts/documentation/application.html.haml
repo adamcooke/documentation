@@ -9,6 +9,7 @@
     = render 'layouts/documentation/header'
     %nav.pages
       .inner
+        = render 'layouts/documentation/search'
         = documentation_navigation_tree_for(@page)
     %section.content
       .inner  

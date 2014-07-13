@@ -25,10 +25,15 @@ module Documentation
       true
     end
     
-    def check!(action, object)
+    def can_search?
+      true
+    end
+    
+    def check!(action, object = nil)
       action_method_name = "can_#{action}?"
       if self.respond_to?(action_method_name)
-        if self.send(action_method_name, object) != true
+        result = object ? self.send(action_method_name, object) : self.send(action_method_name)
+        if result != true
           raise Documentation::AccessDeniedError, "You are not permitted to perform this action."
         end
       else

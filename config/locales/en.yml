@@ -6,7 +6,9 @@ en:
       header:
         title: Documentation
         back_to_site: Back to site
-  
+      search:
+        query_placeholder: Search Documentation...
+        
   documentation:
     
     helpers:
@@ -45,3 +47,10 @@ en:
         back_to_page: Back to page
         back_to_homepage: Back to homepage
         
+      search:
+        title: "Search results for '%{query}'"
+        no_results: "No pages were found matching '%{query}'"
+        summary: "Found %{total_results} pages matching your query. Showing results %{start_result} to %{end_result}"
+        in: in
+        next_page: Next page
+        previous_page: Previous page

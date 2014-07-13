@@ -35,7 +35,7 @@ module Documentation
     # Return a default empty array for parents
     #
     def parents
-      @parents ||= []
+      @parents ||= self.parent ? [self.parent.parents, self.parent].flatten : []
     end
 
     #

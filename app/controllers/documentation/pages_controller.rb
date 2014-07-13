@@ -52,6 +52,11 @@ module Documentation
         render :json => {:status => 'ok'}
       end
     end
+    
+    def search
+      authorizer.check! :search
+      @result = Documentation::Page.search(params[:query], :page => params[:page].blank? ? 1 : params[:page].to_i)
+    end
 
     private
 
