@@ -5,6 +5,10 @@ module Documentation
       render :template => 'documentation/shared/access_denied', :layout => false
     end
     
+    rescue_from ActiveRecord::RecordNotFound do |e|
+      render :template => 'documentation/shared/not_found', :layout => false
+    end
+    
     private
     
     def authorizer

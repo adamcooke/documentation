@@ -239,10 +239,15 @@ section.welcome {
 //
 // Access denied
 //
-section.accessDenied {
-  width:400px;
+html.errorPage {
+  background:lighten(#354050, 70%); 
+}
+
+section.errorMessage {
+  width:450px;
   margin:100px auto;
-  background:lighten(#354050, 70%);
+  box-shadow: 0 0 35px lighten(#354050, 60%);
+  background:white;
   text-align:center;
   h2 {
     background:#354050;
@@ -252,7 +257,7 @@ section.accessDenied {
     font-weight:300;
   }
   p {
-    padding:15px;
+    padding:25px 15px;
     line-height:1.5;
     font-size:0.9em;
     color:lighten(#354050, 30%);

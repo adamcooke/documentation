@@ -1,0 +1,10 @@
+!!!
+%html.errorPage
+  %head
+    %title= @page_title
+    = stylesheet_link_tag 'documentation/application'
+    = csrf_meta_tags
+  %body
+    %section.errorMessage
+      %h2 Page Not Found
+      %p No page was found at the path you have entered. Please ensure you have entered the correct URL otherwise contact the site admin.
