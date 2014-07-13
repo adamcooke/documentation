@@ -16,7 +16,7 @@
             %p.in
               = t('.in')
               = page.parents.map { |c| link_to(h(c.title), page_path(c.full_permalink))}.join(" &#8658; ").html_safe
-          %p.excerpt= truncate page.content, :length => 200
+          %p.excerpt= @result.excerpt_for(page)
         
   
     %p.pagination

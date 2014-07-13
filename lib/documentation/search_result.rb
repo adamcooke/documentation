@@ -25,6 +25,17 @@ module Documentation
     end
     
     #
+    # Return the highlight string for a given page
+    #
+    def excerpt_for(page)
+      if @raw_results[page.id] && hl = @raw_results[page.id][:highlights]
+        ERB::Util.html_escape((hl.join("..."))).gsub('{{{', "<mark>").gsub("}}}", "</mark>").html_safe
+      else
+        page.content[0,255].gsub(/[\n\r]/, '') + "..."
+      end
+    end
+    
+    #
     # Is the result set empty?
     #
     def empty?
