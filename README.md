@@ -18,10 +18,10 @@ Next, you'll need to run the setup generator which will add a route to your `con
 bundle exec rails generate documentation:setup
 ```
 
-You now need to populate your database schema and load some initial data.
+You now need to populate your database schema and load the initial documentation pages.
 
 ```
-bundle exec rake db:migrate documentation:seed
+bundle exec rake db:migrate documentation:install_guides
 ```
 
 Once this is done, you can go ahead and start up your Rails application and browse to `/docs` to view your documentation system.
