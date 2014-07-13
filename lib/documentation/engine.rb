@@ -17,7 +17,7 @@ module Documentation
     end
     
     generators do
-      require 'documentation/generators/route_generator'
+      require 'documentation/generators/setup_generator'
     end
     
     def self.mounted_path

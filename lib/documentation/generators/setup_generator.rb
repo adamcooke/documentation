@@ -2,10 +2,10 @@ require 'rails/generators'
 
 module Documentation
   module Generators
-    class RouteGenerator < Rails::Generators::Base
-    
+    class SetupGenerator < Rails::Generators::Base
+      
       def create_route
-        route 'mount Documentation::Engine => "/docman"'
+        route 'mount Documentation::Engine => "/docs"'
       end
 
     end
