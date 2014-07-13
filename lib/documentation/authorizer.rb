@@ -29,10 +29,10 @@ module Documentation
       true
     end
     
-    def check!(action, object = nil)
+    def check!(action, object = :none)
       action_method_name = "can_#{action}?"
       if self.respond_to?(action_method_name)
-        result = object ? self.send(action_method_name, object) : self.send(action_method_name)
+        result = object == :none ? self.send(action_method_name) : self.send(action_method_name, object)
         if result != true
           raise Documentation::AccessDeniedError, "You are not permitted to perform this action."
         end

@@ -98,11 +98,22 @@ module Documentation
     def navigation
       if has_children?
         root_parent = parents[-1]
+        if root_parent.nil?
+          pages = self.class.roots
+        else
+          pages = (root_parent || self).children
+        end
       else
         root_parent = parents[-2] || parents[-1]
+        if root_parent.nil? || (root_parent.parent.nil? && parents.size <= 1)
+          pages = self.class.roots
+        else
+          pages = (root_parent || self).children
+        end
       end
-
-      (root_parent || self).children.map do |c|
+      
+      
+      pages.map do |c|
         child_pages = []
         child_pages = c.children if breadcrumb.include?(c)
         [c, child_pages]
