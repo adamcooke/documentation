@@ -1,16 +1,13 @@
 %section.welcome
-  %h1 Welcome to Documentation
-  %h2 Choose a page from the menu on the left of the screen to begin.
-  
+  %h1= t('.welcome_title')
+  %h2= t('.welcome_text')
+
   - if Documentation.config.developer_tips
     .override
-      %p
-        You can override this page by adding a new view in <code>app/views/documentation/pages/index</code>.
-        Alternatively, you can disable this message by setting <code>developer_tips</code> to false in the
-        Documentation configuration.
+      %p= t('.developer_tip').html_safe
       
   %p.new
     - if authorizer.can_add_page?(nil)
-      = link_to "Create new root page", new_page_path, :class => 'button new'
+      = link_to t('.create_root_page'), new_page_path, :class => 'button new'
     - if authorizer.can_reposition_page?(nil)
-      = link_to "Re-order root pages", page_positioning_path, :class => 'button'
+      = link_to t('.reorder_root_pages'), page_positioning_path, :class => 'button'

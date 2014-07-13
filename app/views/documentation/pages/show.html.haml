@@ -4,10 +4,10 @@
 
 %section.page
   - if @page.preview_path
-    %p.previewLink= link_to "View in website", @page.preview_path, :class => 'button preview'
+    %p.previewLink= link_to t('.view_in_website'), @page.preview_path, :class => 'button preview'
 
   %h1= @page.title
-  %p.updated Last updated #{@page.updated_at.to_s(:long_ordinal)}
+  %p.updated= t('.last_updated', :timestamp => @page.updated_at.to_s(:long))
   .documentationMarkdown
     ~ preserve(documentation_content_for(@page))
 

@@ -1,0 +1,47 @@
+en:
+  layouts:
+    documentation:
+      application:
+        title: Documentation
+      header:
+        title: Documentation
+        back_to_site: Back to site
+  
+  documentation:
+    
+    helpers:
+      documentation_breadcrumb_for:
+        default_root_link: Home
+    
+    pages:
+      index:
+        welcome_title: Welcome to Documentation
+        welcome_text: Choose a page from the menu on the left of the screen to begin.
+        developer_tip:
+          You can override this page by adding a new view in <code>app/views/documentation/pages/index</code>.
+          Alternatively, you can disable this message by setting <code>developer_tips</code> to false in the
+          Documentation configuration.
+        create_root_page: Create new root page
+        reorder_root_pages: Re-order root pages
+      
+      show:
+        view_in_website: View in website
+        last_updated: Last updated on %{timestamp}
+      
+      admin_buttons:
+        new: New page
+        edit: Edit page
+        reorder: Re-order children
+        delete: Delete page
+      
+      form:
+        title_placeholder: Enter a title for this page
+        content_placeholder: 'Use Markdown to enter page content'
+        permalink_placeholder: Automatically generated if left blank
+        save: Save Page
+      
+      positioning:
+        reorder_root_pages_title: Re-order root pages
+        back_to_page: Back to page
+        back_to_homepage: Back to homepage
+        

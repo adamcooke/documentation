@@ -19,7 +19,7 @@ module Documentation
     # Return a breadcrumb for the given page
     #
     def documentation_breadcrumb_for(page, options = {})
-      options[:root_link] = options[:root_link].nil? ? 'Home' : options[:root_link]
+      options[:root_link] = options[:root_link].nil? ? t('documentation.helpers.documentation_breadcrumb_for.default_root_link') : options[:root_link]
       options[:class]     ||= 'breadcrumb'
       
       String.new.tap do |s|
