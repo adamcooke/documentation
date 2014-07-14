@@ -24,6 +24,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'redcarpet', '>= 3.1.0', '< 4.0'
   s.add_dependency 'pygments.rb', '>= 0.5', '< 1.0'
   
-  s.add_development_dependency 'sqlite3'
+  s.add_development_dependency 'sqlite3', '~> 1.3'
   
 end
