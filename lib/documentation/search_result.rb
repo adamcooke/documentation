@@ -21,7 +21,10 @@ module Documentation
     # Return the pages
     #
     def results
-      @results ||= Documentation::Page.where(:id => raw_results.keys).includes(:parent)
+      @results ||= begin
+        results = Documentation::Page.where(:id => raw_results.keys).includes(:parent).to_a
+        results.sort_by { |p| raw_results.keys.index(p.id) }
+      end
     end
     
     #
