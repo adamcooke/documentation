@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    documentation (1.0.0)
+    documentation (1.0.1)
       coffee-rails (~> 4)
       dynamic_form (~> 1.1, >= 1.1.4)
       haml (~> 4.0)
@@ -9,7 +9,7 @@ PATH
       pygments.rb (>= 0.5, < 1.0)
       rails (>= 4.0.0, < 5.0)
       redcarpet (>= 3.1.0, < 4.0)
-      sass-rails (~> 4.0)
+      sass-rails (~> 4)
       uglifier (>= 2.2, < 3.0)
 
 GEM
@@ -116,7 +116,7 @@ GEM
       polyglot (>= 0.3.1)
     tzinfo (1.2.1)
       thread_safe (~> 0.1)
-    uglifier (2.5.1)
+    uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     yajl-ruby (1.1.0)
@@ -126,4 +126,4 @@ PLATFORMS
 
 DEPENDENCIES
   documentation!
-  sqlite3
+  sqlite3 (~> 1.3)
