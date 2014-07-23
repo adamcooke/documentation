@@ -65,3 +65,41 @@ Returns the path to edit the given page in the provided UI.
 ### `documentation_page_path(page)`
 
 Returns the path to view the given page in the provided UI.
+
+-------------
+
+### `documentation_search_summary(result)`
+
+Returns information about your search result
+
+-------------
+
+### `documentation_search_results(result, options)`
+
+Return an unordered list containing your search results.
+
+```html
+<ul class='searchResults'>
+  <li>
+    <h4><a href='path/to/page'>Title of page</a></h4>
+    <p class='in'><!--- Other pages if they exist --></p>
+    <p class='except'>An excerpt goes <mark>here</mark></p>
+  </li>
+</ul>
+```
+
+#### Options for this helper
+
+* `:class` - the class for the outer list
+
+-------------
+
+### `documentation_search_pagination(result, options)`
+
+Return a next page and previous page link based on the results
+
+#### Options for this helper
+
+* `:link_class` - the class to apply to both links
+* `:next_link_class` - the class for the next link
+* `:previous_link_class` - the class for the previous link
