@@ -11,6 +11,7 @@ end
 
 Once you have created this class, you can define a number of methods. In all your methods you can access `controller` to access the controller which requested the page. This allows you to access sessions, params or other request information. The methods you can override are as follows:
 
+* `can_use_ui?` - whether the built-in UI can be used
 * `can_search?` - whether searching can take place
 * `can_view_page?(page)` - whether the provided page can be viewed
 * `can_add_page?(page)` - whether a page can be created within the provided page

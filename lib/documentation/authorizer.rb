@@ -29,6 +29,10 @@ module Documentation
       true
     end
     
+    def can_use_ui?
+      true
+    end
+    
     def check!(action, object = :none)
       action_method_name = "can_#{action}?"
       if self.respond_to?(action_method_name)
