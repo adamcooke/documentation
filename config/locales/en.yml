@@ -14,7 +14,14 @@ en:
     helpers:
       documentation_breadcrumb_for:
         default_root_link: Home
-    
+      documentation_search_summary:
+        text: "Found %{total_results} pages matching your query. Showing results %{start_result} to %{end_result}"
+      documentation_search_results:
+        in: in
+      documentation_search_pagination:
+        next: Next page
+        previous: Previous page
+        
     pages:
       index:
         welcome_title: Welcome to Documentation
@@ -50,7 +57,5 @@ en:
       search:
         title: "Search results for '%{query}'"
         no_results: "No pages were found matching '%{query}'"
-        summary: "Found %{total_results} pages matching your query. Showing results %{start_result} to %{end_result}"
-        in: in
         next_page: Next page
         previous_page: Previous page

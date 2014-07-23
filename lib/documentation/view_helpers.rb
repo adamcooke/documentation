@@ -109,5 +109,51 @@ module Documentation
       @documentation_authorizer ||= Documentation.config.authorizer.new(controller)
     end
     
+    # 
+    # Return summary information for search results
+    #
+    def documentation_search_summary(result)
+      t('documentation.helpers.documentation_search_summary.text', :total_results => result.total_results, :start_result => result.start_result_number, :end_result => result.end_result_number, :query => result.query)
+    end
+    
+    #
+    # Return the search results
+    #
+    def documentation_search_results(result, options = {})
+      options[:class] ||= 'searchResults'
+      String.new.tap do |s|
+        s << "<ul class='#{options[:class]}'>"
+        result.results.each do |page|
+          s << "<li>"
+          s << "<h4><a href='#{documentation_doc_root}/#{page.full_permalink}'>#{page.title}</a></h4>"
+          unless page.parents.empty?
+            s << "<p class='in'>#{t('documentation.helpers.documentation_search_results.in')} "
+            s << page.parents.map { |c| link_to(h(c.title), "#{documentation_doc_root}/#{c.full_permalink}")}.join(" &#8658; ").html_safe
+            s << "</p>"
+          end
+          s << "<p class='excerpt'>#{result.excerpt_for(page)}</p>"
+          s << "</li>"
+        end
+        s << "</ul>"
+      end.html_safe
+    end
+    
+    #
+    # Return search pagination links
+    #
+    def documentation_search_pagination(result, options = {})
+      String.new.tap do |s|
+        unless result.first_page?
+          querystring = {:query => result.query, :page => result.page - 1}.to_query
+          s << link_to(t('documentation.helpers.documentation_search_pagination.previous'), "#{documentation_doc_root}/search?#{querystring}", :class => [options[:link_class], options[:previous_link_class]].compact.join(' '))
+        end
+
+        unless result.last_page?
+          querystring = {:query => result.query, :page => result.page + 1}.to_query
+          s << link_to(t('documentation.helpers.documentation_search_pagination.next'), "#{documentation_doc_root}/search?#{querystring}", :class => [options[:link_class], options[:next_link_class]].compact.join(' '))
+        end
+      end.html_safe
+    end
+    
   end
 end

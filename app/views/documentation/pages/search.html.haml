@@ -6,21 +6,7 @@
     %p.noSearchResults= t('.no_results', :query => params[:query])
   - else
     %h1= t('.title', :query => params[:query])
-    %p.searchSummary= t('.summary', :total_results => @result.total_results, :start_result => @result.start_result_number, :end_result => @result.end_result_number)
+    %p.searchSummary= documentation_search_summary(@result)
+    = documentation_search_results(@result)        
+    %p.pagination= documentation_search_pagination(@result, :link_class => 'button')
     
-    %ul.searchResults
-      - for page in @result.results
-        %li
-          %h4= link_to page.title, page_path(page.full_permalink)
-          - unless page.parents.empty?
-            %p.in
-              = t('.in')
-              = page.parents.map { |c| link_to(h(c.title), page_path(c.full_permalink))}.join(" &#8658; ").html_safe
-          %p.excerpt= @result.excerpt_for(page)
-        
-  
-    %p.pagination
-      - unless @result.first_page?
-        = link_to t('.previous_page'), search_path(:query => params[:query], :page => @result.page - 1), :class => 'button'
-      - unless @result.last_page?
-        = link_to t('.next_page'), search_path(:query => params[:query], :page => @result.page + 1), :class => 'button'
