@@ -4,6 +4,8 @@ require 'sass-rails'
 require 'jquery-rails'
 require 'dynamic_form'
 require 'ostruct'
+require 'nifty/attachments'
+require 'nifty/dialog'
 
 require 'documentation/version'
 require 'documentation/errors'

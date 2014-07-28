@@ -44,6 +44,20 @@ module Documentation
       redirect_to @page.parent ? page_path(@page.parent.full_permalink) : root_path, :notice => "Page has been removed successfully."
     end
 
+    def screenshot
+      if request.post?
+        @screenshot = Screenshot.new(screenshot_params)
+        if @screenshot.save
+          render :json => { :id => @screenshot.id, :title => @screenshot.alt_text, :path => @screenshot.upload.path }, :status => :created
+        else
+          render :json => { :errors => @screenshot.errors }, :status => :unprocessible_entity
+        end
+      else
+        @screenshot = Screenshot.new
+        render 'screenshot', :layout => false
+      end
+    end
+
     def positioning
       authorizer.check! :reposition_page, @page
       @pages = @page ? @page.children : Page.roots
@@ -68,6 +82,10 @@ module Documentation
 
     def safe_params
       params.require(:page).permit(:title, :permalink, :content, :favourite)
+    end
+
+    def screenshot_params
+      params.require(:screenshot).permit(:upload_file, :alt_text)
     end
 
   end

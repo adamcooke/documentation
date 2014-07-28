@@ -1,5 +1,6 @@
 /*
  *= require documentation/reset
+ *= require nifty/dialog
  *= require_self
  *= require documentation/markdown
  *= require documentation/page_form
@@ -193,6 +194,7 @@ a.button, input.button {
 	border-radius:5px;
 	margin-left:5px;
 	appearance:none;
+  vertical-align:middle;
 	&.delete {
 		color:#F6744F;
 		border-color:lighten(#F6744F, 20%);
