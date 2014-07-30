@@ -62,7 +62,7 @@ $ ->
             processData: false
             contentType: false
             success: (data)->
-              screenshotLink = "![#{data.title}*centre](#{data.path})\n"
+              screenshotLink = "![#{data.title}*centre](#{data.path})"
               newContent = content.substring(0, caretPosition) + screenshotLink + content.substring(caretPosition)
               newCaretPosition = (content.substring(0, caretPosition) + screenshotLink).length
               contentArea.val(newContent)
