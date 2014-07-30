@@ -1,0 +1,15 @@
+= form_for @screenshot, :url => upload_screenshot_path, :html => {:class => 'pageForm'} do |f|
+  %dl
+    %dt= f.label :upload_file, "Upload File"
+    %dd.padded
+      - if params[:filename]
+        = params[:filename]
+      - else
+        = f.file_field :upload_file
+
+  %dl
+    %dt= f.label :alt_text, "Screenshot Title"
+    %dd= f.text_field :alt_text
+
+  %p.submit
+    = f.submit "Upload Screenshot", :class => 'button'

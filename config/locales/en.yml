@@ -47,6 +47,7 @@ en:
         title_placeholder: Enter a title for this page
         content_placeholder: 'Use Markdown to enter page content'
         permalink_placeholder: Automatically generated if left blank
+        add_screenshot: Add Screenshot
         save: Save Page
       
       positioning:

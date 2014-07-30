@@ -23,6 +23,8 @@ Gem::Specification.new do |s|
   s.add_dependency "uglifier", ">= 2.2", "< 3.0"
   s.add_dependency 'redcarpet', '>= 3.1.0', '< 4.0'
   s.add_dependency 'pygments.rb', '>= 0.5', '< 1.0'
+  s.add_dependency 'nifty-attachments', '>= 1.0.3'
+  s.add_dependency 'nifty-dialog', '~> 1'
   
   s.add_development_dependency 'sqlite3', '~> 1.3'
   
