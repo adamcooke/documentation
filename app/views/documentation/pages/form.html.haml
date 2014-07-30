@@ -11,5 +11,6 @@
       %dd= f.text_field :permalink, :placeholder => t('.permalink_placeholder')
 
     %p.submit
-      = link_to t('.add_screenshot'), upload_screenshot_path, :class => 'button new js-screenshot'
+      - if authorizer.can_upload?(@page)
+        = link_to t('.add_screenshot'), upload_screenshot_path, :class => 'button preview js-screenshot'
       = f.submit t('.save'), :class => 'button'

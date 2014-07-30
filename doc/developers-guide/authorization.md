@@ -18,6 +18,7 @@ Once you have created this class, you can define a number of methods. In all you
 * `can_reposition_page?(page)` - whether pages within the provided page can be repositioned
 * `can_edit_page?(page)` - whether the provided page can be edited
 * `can_delete_page?(page)` - whether the provided page can be deleted
+* `can_upload?(page)` - whether a file can be uploaded to this page
 
 The default for all these method if left un-defined, is `true`. Here's an example:
 

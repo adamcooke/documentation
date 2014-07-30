@@ -25,6 +25,10 @@ module Documentation
       true
     end
     
+    def can_upload?(page)
+      true
+    end
+    
     def can_search?
       true
     end

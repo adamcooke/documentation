@@ -45,6 +45,7 @@ module Documentation
     end
 
     def screenshot
+      authorizer.check! :upload, @page
       if request.post?
         @screenshot = Screenshot.new(screenshot_params)
         if @screenshot.save
