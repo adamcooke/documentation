@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140711185212) do
+ActiveRecord::Schema.define(version: 20140724114255) do
 
   create_table "documentation_pages", force: true do |t|
     t.string   "title"
@@ -20,6 +20,23 @@ ActiveRecord::Schema.define(version: 20140711185212) do
     t.text     "compiled_content"
     t.integer  "parent_id"
     t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "documentation_screenshots", force: true do |t|
+    t.string "alt_text"
+  end
+
+  create_table "nifty_attachments", force: true do |t|
+    t.integer  "parent_id"
+    t.string   "parent_type"
+    t.string   "token"
+    t.string   "digest"
+    t.string   "role"
+    t.string   "file_name"
+    t.string   "file_type"
+    t.binary   "data",        limit: 10485760
     t.datetime "created_at"
     t.datetime "updated_at"
   end
