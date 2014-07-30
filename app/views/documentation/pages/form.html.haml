@@ -1,6 +1,6 @@
 - @page_title = @page.breadcrumb.reverse.map(&:title).join(" - ")
 
-%section.content
+%section.content.edit-article
   = documentation_breadcrumb_for @page
   = form_for @page, :url => @page.new_record? ? new_page_path(@page.parent ? @page.parent.full_permalink : nil) : edit_page_path(@page.full_permalink), :html => {:class => 'pageForm'} do |f|
     = error_messages_for @page

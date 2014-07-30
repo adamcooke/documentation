@@ -15,21 +15,42 @@ $ ->
   
   $('.js-screenshot').on 'click', (e)->
     e.preventDefault()
+    openUploadDialog()
 
-    contentArea = $('#page_content')
+  $('.edit-article').on 'drop', (e)->
+    e.stopPropagation()
+    e.preventDefault()
+
+    file = e.originalEvent.dataTransfer.files[0]
+
+    openUploadDialog(file)
+
+  openUploadDialog = (file)->
+    editForm = $('.edit-article').find('form')
+    contentArea = editForm.find('#page_content')
     caretPosition = contentArea.get(0).selectionStart
     content = contentArea.val()
 
+    uploadFormUrl = editForm.find('.js-screenshot').attr('href')
+    uploadFormUrl = uploadFormUrl + "?filename=#{file.name}" if file?
+
     Nifty.Dialog.open
-      url: $(this).attr('href')
+      url:  uploadFormUrl
       afterLoad: (dialog)->
         form = dialog.find('form')
+        form.find('#screenshot_alt_text').focus()
 
         dialog.on 'submit', 'form', (e)->
           form = $(this)
           formData = new FormData(form.get(0))
 
-          fileExt = form.find('#screenshot_upload_file').val().split('.').pop().toLowerCase()
+          if file?
+            filename = file.name
+            formData.append('screenshot[upload_file]', file)
+          else
+            filename = form.find('#screenshot_upload_file').val()
+
+          fileExt = filename.split('.').pop().toLowerCase()
           if $.inArray(fileExt, ['gif','png','jpg','jpeg']) == -1
             alert("Invalid file extension (allowed: gif, png, jpg, jpeg)")
             return false
