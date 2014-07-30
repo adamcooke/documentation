@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    documentation (1.0.2)
+    documentation (1.0.3)
       coffee-rails (~> 4)
       dynamic_form (~> 1.1, >= 1.1.4)
       haml (~> 4.0)
