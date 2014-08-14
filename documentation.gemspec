@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.summary     = "A Rails engine to provider the ability to add documentation to a Rails application"
   s.description = "It does cool stuff!"
   
-  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,doc,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   
   s.add_dependency "rails", ">= 4.0.0", "< 5.0"
   s.add_dependency "haml", "~> 4.0"
