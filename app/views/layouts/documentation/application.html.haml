@@ -5,8 +5,11 @@
     = stylesheet_link_tag 'documentation/application'
     = javascript_include_tag 'documentation/application'
     = csrf_meta_tags
+    = render 'layouts/documentation/head'
+    = yield :head
   %body
     = render 'layouts/documentation/header'
+    
     %nav.pages
       .inner
         = render 'layouts/documentation/search'
@@ -15,4 +18,5 @@
       .inner  
         = flash_messages
         = yield
-        
+        = render 'layouts/documentation/footer'
+    
