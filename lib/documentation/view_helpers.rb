@@ -26,7 +26,7 @@ module Documentation
         s << "<nav class='#{options[:class]}'><ul>"
         
         if options[:root_link]
-          s << "<li><a href='#{documentation_doc_root}'>#{options[:root_link]}</a></li>"
+          s << "<li><a href='#{documentation_doc_root.blank? ? '/' : documentation_doc_root}'>#{options[:root_link]}</a></li>"
         end
         
         if page.is_a?(::Documentation::Page)
@@ -95,7 +95,7 @@ module Documentation
     def documentation_doc_root
       @documentation_doc_root ||= begin
         if controller.is_a?(Documentation::ApplicationController)
-          ::Documentation::Engine.mounted_path.to_s
+          ::Documentation::Engine.mounted_path.to_s.sub(/\/$/, '')
         else
           ::Documentation.config.preview_path_prefix.to_s.sub(/\/$/, '')
         end
