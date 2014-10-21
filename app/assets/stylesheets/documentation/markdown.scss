@@ -11,7 +11,7 @@ div.documentationMarkdown {
 	ul, ol { line-height:1.8em; margin:20px 0; margin-left:40px; }
 	ul li { background:image-url('documentation/pin.svg') no-repeat 0 5px; background-size:13px; padding-left:25px;}
 	ol { margin-left:65px;}
-	ol li { margin-bottom:20px;padding-left:15px;}
+	ol li { margin-bottom:8px;padding-left:15px;}
 	ol li:last-child { margin-bottom:0; }
 	ul.pages {
 		overflow:hidden;
@@ -24,7 +24,7 @@ div.documentationMarkdown {
 	
 	a.anchor { display:none; float:right; border:0; color:#999; width:16px; height:16px; background:image-url('documentation/link.svg'); opacity:0.6; background-size:16px; text-indent:-40000px;}
 	
-	p.recommendation {
+	p.recommendation, p.notice {
 		background:image-url('documentation/recommendation.svg') #F5F7FB no-repeat 20px 16px;
 		background-size:20px;
 		border:1px solid #E4E7ED;
