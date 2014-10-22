@@ -12,6 +12,8 @@ To get started, you need to add Documentation to your Gemfile and run `bundle`.
 gem 'documentation', '~> 1.0.0'
 ```
 
+[![Gem Version](https://badge.fury.io/rb/documentation.svg)](http://badge.fury.io/rb/documentation)
+
 Next, you'll need to run the setup generator which will add a route to your `config/routes.rb` file for the Documentation interface.
 
 ```
