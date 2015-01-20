@@ -20,7 +20,7 @@ module Documentation
     end
     
     def self.mounted_path
-      if route = Rails.application.routes.routes.select { |r| r.app == self }.first
+      if route = Rails.application.routes.routes.select { |r| r.app == self or r.app.try(:app) == self }.first
         route.path.spec.to_s
       end
     end
