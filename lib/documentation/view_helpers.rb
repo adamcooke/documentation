@@ -72,7 +72,7 @@ module Documentation
 
       String.new.tap do |output|
         output << "<ul>"
-        if options[:include_back] && page.breadcrumb.size > 1
+        if options[:include_back] && page && page.breadcrumb.size > 1
           if active_page_type == :root && page.has_children?
             back_page = page.breadcrumb[-2]
           elsif active_page_type == :child && !page.has_children?
