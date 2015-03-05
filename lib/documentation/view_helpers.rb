@@ -42,17 +42,22 @@ module Documentation
     #
     # Return a default navigation tree for the given page
     #
-    def documentation_navigation_tree_for(page)
-      String.new.tap do |s|
-        s << "<ul>"
+    def documentation_navigation_tree_for(page, options = {})
+      active_page_type = nil
+      items = String.new.tap do |s|
         if page.is_a?(::Documentation::Page)
-          page.navigation.select { |p,c| documentation_authorizer.can_view_page?(p) }.each do |p, children|
+
+          pages = page.navigation.select { |p,c| documentation_authorizer.can_view_page?(p) }
+
+          pages.each do |p, children|
             s << "<li>"
             s << "<a #{page == p ? "class='active'" : ''} href='#{documentation_doc_root}/#{p.full_permalink}'>#{p.title}</a>"
+            active_page_type = :root if page == p
             unless children.empty?
               s << "<ul>"
               children.select { |c| documentation_authorizer.can_view_page?(c) }.each do |p|
                 s << "<li><a #{page == p ? "class='active'" : ''} href='#{documentation_doc_root}/#{p.full_permalink}'>#{p.title}</a></li>"
+                active_page_type = :child if page == p
               end
               s << "</ul>"
             end
@@ -63,7 +68,25 @@ module Documentation
             s << "<li><a href='#{documentation_doc_root}/#{page.full_permalink}'>#{page.title}</a></li>"
           end
         end
-        s << "</ul>"
+      end
+
+      String.new.tap do |output|
+        output << "<ul>"
+        if options[:include_back] && page.breadcrumb.size > 1
+          if active_page_type == :root && page.has_children?
+            back_page = page.breadcrumb[-2]
+          elsif active_page_type == :child && !page.has_children?
+            back_page = page.breadcrumb[-3]
+          else
+            back_page = nil
+          end
+
+          if back_page
+            output << "<li class='back'><a href='#{documentation_doc_root}/#{back_page.full_permalink}'>&larr; Back to #{back_page.title}</a></li>"
+          end
+        end
+        output << items
+        output << "</ul>"
       end.html_safe
     end
 
