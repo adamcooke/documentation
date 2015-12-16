@@ -2,14 +2,14 @@ module Documentation
   class PagesController < Documentation::ApplicationController
 
     before_filter :find_page, :only => [:show, :edit, :new, :destroy, :positioning]
-    
+
     def show
       authorizer.check! :view_page, @page
     end
-    
+
     def edit
       authorizer.check! :edit_page, @page
-      
+
       if request.patch?
         if @page.update_attributes(safe_params)
           redirect_to page_path(@page.full_permalink), :notice => "Page has been saved successfully."
@@ -21,7 +21,7 @@ module Documentation
 
     def new
       authorizer.check! :add_page, @page
-      
+
       parent = @page
       @page = Page.new(:title => "Untitled Page")
       if @page.parent = parent
@@ -67,7 +67,7 @@ module Documentation
         render :json => {:status => 'ok'}
       end
     end
-    
+
     def search
       authorizer.check! :search
       @result = Documentation::Page.search(params[:query], :page => params[:page].blank? ? 1 : params[:page].to_i)

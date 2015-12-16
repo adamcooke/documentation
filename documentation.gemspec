@@ -11,9 +11,9 @@ Gem::Specification.new do |s|
   s.licenses    = ['MIT']
   s.summary     = "A Rails engine to provider the ability to add documentation to a Rails application"
   s.description = "It does cool stuff!"
-  
+
   s.files = Dir["{app,config,db,doc,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
-  
+
   s.add_dependency "rails", ">= 4.0.0", "< 5.0"
   s.add_dependency "haml", "~> 4.0"
   s.add_dependency "dynamic_form", '~> 1.1', '>= 1.1.4'
@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'pygments.rb', '>= 0.5', '< 1.0'
   s.add_dependency 'nifty-attachments', '>= 1.0.3', "< 2"
   s.add_dependency 'nifty-dialog', '~> 1'
-  
+
   s.add_development_dependency 'sqlite3', '~> 1.3'
-  
+
 end

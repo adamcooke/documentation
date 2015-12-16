@@ -1,25 +1,25 @@
 module Documentation
   class Page < ActiveRecord::Base
-    
+
     validates :title, :presence => true
     validates :position, :presence => true
     validates :permalink, :presence => true, :uniqueness => {:scope => :parent_id}
-    
+
     default_scope -> { order(:position) }
     scope :roots, -> { where(:parent_id => nil) }
-    
+
     belongs_to :parent, :class_name => 'Documentation::Page', :foreign_key => 'parent_id'
-    
+
     before_validation do
       if self.position.blank?
         last_position = self.class.unscoped.where(:parent_id => self.parent_id).order(:position => :desc).first
         self.position = last_position ? last_position.position + 1 : 1
       end
     end
-    
+
     before_validation :set_permalink
     before_save :compile_content
-    
+
     #
     # Ensure the page is updated in the index after saving/destruction
     #
@@ -31,7 +31,7 @@ module Documentation
     # from a path
     #
     attr_accessor :parents
-    
+
     #
     # Set the permalink for this page
     #
@@ -47,7 +47,7 @@ module Documentation
         end
       end
     end
-    
+
     #
     # Return a default empty array for parents
     #
@@ -61,7 +61,7 @@ module Documentation
     def breadcrumb
       @breadcrumb ||= [parents, new_record? ? nil : self].flatten.compact
     end
-    
+
     #
     # Return the path where this page can be viewed in the site
     #
@@ -72,7 +72,7 @@ module Documentation
         nil
       end
     end
-    
+
     #
     # Return a full permalink tot his page
     #
@@ -128,8 +128,8 @@ module Documentation
           pages = (root_parent || self).children
         end
       end
-      
-      
+
+
       pages.map do |c|
         child_pages = []
         child_pages = c.children if breadcrumb.include?(c)
@@ -146,7 +146,7 @@ module Documentation
       rc = Redcarpet::Markdown.new(mr, :space_after_headers => true, :fenced_code_blocks => true, :no_intra_emphasis => true, :highlight => true)
       self.compiled_content = rc.render(self.content.to_s).html_safe
     end
-    
+
     #
     # Index this page
     #
@@ -155,7 +155,7 @@ module Documentation
         searcher.index(self)
       end
     end
-    
+
     #
     # Delete this page from the index
     #
@@ -164,7 +164,7 @@ module Documentation
         searcher.delete(self)
       end
     end
-    
+
     #
     # Find a page using the searcher if one exists otherwise just fall back to AR
     # searching. Returns a Documentation::SearchResult object.
@@ -176,7 +176,7 @@ module Documentation
     end
 
     #
-    # Find a page by passing a path to the page from the root of the 
+    # Find a page by passing a path to the page from the root of the
     # site
     #
     def self.find_from_path(path_string)
@@ -208,6 +208,6 @@ module Documentation
         command.save
       end
     end
-    
+
   end
 end

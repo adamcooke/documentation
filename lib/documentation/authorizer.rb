@@ -1,10 +1,10 @@
 module Documentation
   class Authorizer
-    
+
     def initialize(controller)
       @controller = controller
     end
-    
+
     def can_view_page?(page)
       true
     end
@@ -24,19 +24,19 @@ module Documentation
     def can_edit_page?(page)
       true
     end
-    
+
     def can_upload?(page)
       true
     end
-    
+
     def can_search?
       true
     end
-    
+
     def can_use_ui?
       true
     end
-    
+
     def check!(action, object = :none)
       action_method_name = "can_#{action}?"
       if self.respond_to?(action_method_name)
@@ -48,13 +48,13 @@ module Documentation
         raise Documentation::Error, "Invalid authorizer check (#{action})"
       end
     end
-    
+
     private
-    
+
     def request
       controller.request
     end
-    
-    
+
+
   end
 end
