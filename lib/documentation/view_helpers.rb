@@ -147,15 +147,17 @@ module Documentation
       String.new.tap do |s|
         s << "<ul class='#{options[:class]}'>"
         result.results.each do |page|
-          s << "<li>"
-          s << "<h4><a href='#{documentation_doc_root}/#{page.full_permalink}'>#{page.title}</a></h4>"
-          unless page.parents.empty?
-            s << "<p class='in'>#{t('documentation.helpers.documentation_search_results.in')} "
-            s << page.parents.map { |c| link_to(h(c.title), "#{documentation_doc_root}/#{c.full_permalink}")}.join(" &#8658; ").html_safe
-            s << "</p>"
+          if documentation_authorizer.can_view_page?(page)
+            s << "<li>"
+            s << "<h4><a href='#{documentation_doc_root}/#{page.full_permalink}'>#{page.title}</a></h4>"
+            unless page.parents.empty?
+              s << "<p class='in'>#{t('documentation.helpers.documentation_search_results.in')} "
+              s << page.parents.map { |c| link_to(h(c.title), "#{documentation_doc_root}/#{c.full_permalink}")}.join(" &#8658; ").html_safe
+              s << "</p>"
+            end
+            s << "<p class='excerpt'>#{result.excerpt_for(page)}</p>"
+            s << "</li>"
           end
-          s << "<p class='excerpt'>#{result.excerpt_for(page)}</p>"
-          s << "</li>"
         end
         s << "</ul>"
       end.html_safe
