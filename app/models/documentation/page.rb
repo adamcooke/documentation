@@ -8,7 +8,7 @@ module Documentation
     default_scope -> { order(:position) }
     scope :roots, -> { where(:parent_id => nil) }
 
-    belongs_to :parent, :class_name => 'Documentation::Page', :foreign_key => 'parent_id'
+    belongs_to :parent, :class_name => 'Documentation::Page', :foreign_key => 'parent_id', optional: true
 
     before_validation do
       if self.position.blank?
