@@ -1,5 +1,6 @@
 module Documentation
   class Authorizer
+    attr_reader :controller
 
     def initialize(controller)
       @controller = controller
