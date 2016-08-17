@@ -2,7 +2,7 @@ By default, Documentation uses a very very simple search which uses a LIKE query
 
 ## Elasticsearch
 
-The recommended method of indexing & searching data is to use Elasticsearch. A module is provided for this [on GitHub](https://github.com/adamcooke/documentation-elasticsearch) and can be installed by following the instructions on the repo's README page.
+The recommended method of indexing & searching data is to use Elasticsearch. A module is provided for this [on GitHub](https://github.com/adamcooke/documentation-elasticsearch) and can be installed by following the instructions on the repo's README page.  There is also a Sunspot backend for working with Solr instances [on GitHub](https://github.com/jamesprior/documentation-sunspot)
 
 ## Creating your own search backend
 
