@@ -14,13 +14,13 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,doc,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
 
-  s.add_dependency "rails", ">= 4.0.0", "< 5.0"
+  s.add_dependency "rails", ">= 4.0.0", "< 6.0"
   s.add_dependency "haml", "~> 4.0"
   s.add_dependency "dynamic_form", '~> 1.1', '>= 1.1.4'
   s.add_dependency "jquery-rails", ">= 3.0", "< 5"
   s.add_dependency "coffee-rails", "~> 4"
   s.add_dependency "sass-rails", ">= 4.0", "< 6"
-  s.add_dependency "uglifier", ">= 2.2", "< 3.0"
+  s.add_dependency "uglifier", ">= 2.2", "< 4.0"
   s.add_dependency 'redcarpet', '>= 3.1.0', '< 4.0'
   s.add_dependency 'pygments.rb', '>= 0.5', '< 1.0'
   s.add_dependency 'nifty-attachments', '>= 1.0.3', "< 2"

@@ -8,7 +8,9 @@ module Documentation
     default_scope -> { order(:position) }
     scope :roots, -> { where(:parent_id => nil) }
 
-    belongs_to :parent, :class_name => 'Documentation::Page', :foreign_key => 'parent_id'
+    parent_options = {:class_name => "Documentation::Page", :foreign_key => 'parent_id'}
+    parent_options[:optional] = true if ActiveRecord::VERSION::MAJOR >= 5
+    belongs_to :parent, parent_options
 
     before_validation do
       if self.position.blank?
@@ -93,7 +95,7 @@ module Documentation
     def children
       @children ||= begin
         if self.new_record?
-          []
+          self.class.none
         else
           children = self.class.where(:parent_id => self.id)
           children.each { |c| c.parents = [parents, self].flatten }
