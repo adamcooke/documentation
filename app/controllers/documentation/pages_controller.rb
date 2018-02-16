@@ -1,7 +1,7 @@
 module Documentation
   class PagesController < Documentation::ApplicationController
 
-    before_filter :find_page, :only => [:show, :edit, :new, :destroy, :positioning]
+    before_action :find_page, :only => [:show, :edit, :new, :destroy, :positioning]
 
     def show
       authorizer.check! :view_page, @page

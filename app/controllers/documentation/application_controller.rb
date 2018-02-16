@@ -9,7 +9,7 @@ module Documentation
       render :template => 'documentation/shared/not_found', :layout => false
     end
 
-    before_filter do
+    before_action do
       unless authorizer.can_use_ui?
         render :template => 'documentation/shared/not_found', :layout => false
       end
