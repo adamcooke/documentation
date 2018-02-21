@@ -1,18 +1,18 @@
 PATH
   remote: .
   specs:
-    documentation (1.0.10)
+    documentation (2.0.0)
       coffee-rails (~> 4)
-      dynamic_form (~> 1.1, >= 1.1.4)
-      haml (>= 4.0, < 6.0)
-      jquery-rails (>= 3.0, < 5)
-      nifty-attachments (>= 1.0.3, < 2)
+      dynamic_form (~> 1.1)
+      haml (>= 4.0)
+      jquery-rails (>= 3.0)
+      nifty-attachments (>= 1.0.3)
       nifty-dialog (~> 1)
-      pygments.rb (>= 0.5, < 1.0)
+      pygments.rb (>= 0.5)
       rails (>= 4.0.0, < 6.0)
-      redcarpet (>= 3.1.0, < 4.0)
-      sass-rails (>= 4.0, < 6)
-      uglifier (>= 2.2, < 4.0)
+      redcarpet (>= 3.1.0)
+      sass-rails (>= 4.0)
+      uglifier (>= 2.2)
 
 GEM
   remote: https://rubygems.org/
@@ -89,15 +89,14 @@ GEM
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     minitest (5.11.3)
+    multi_json (1.13.1)
     nifty-attachments (1.0.4)
     nifty-dialog (1.1.1)
     nio4r (2.2.0)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
-    posix-spawn (0.3.13)
-    pygments.rb (0.6.3)
-      posix-spawn (~> 0.3.6)
-      yajl-ruby (~> 1.2.0)
+    pygments.rb (1.2.1)
+      multi_json (>= 1.0.0)
     rack (2.0.4)
     rack-test (0.8.2)
       rack (>= 1.0, < 3)
@@ -154,12 +153,11 @@ GEM
     tilt (2.0.8)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    uglifier (3.2.0)
+    uglifier (4.1.6)
       execjs (>= 0.3.0, < 3)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
-    yajl-ruby (1.2.3)
 
 PLATFORMS
   ruby
@@ -169,4 +167,4 @@ DEPENDENCIES
   sqlite3 (~> 1.3)
 
 BUNDLED WITH
-   1.16.0
+   1.16.1
