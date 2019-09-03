@@ -1,4 +1,4 @@
-class CreateNiftyAttachmentsTable < ActiveRecord::Migration
+class CreateNiftyAttachmentsTable < ActiveRecord::Migration[5.2]
   
   def up
     create_table :nifty_attachments do |t|
