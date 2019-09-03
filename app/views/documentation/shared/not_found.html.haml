@@ -6,5 +6,5 @@
     = csrf_meta_tags
   %body
     %section.errorMessage
-      %h2 Page Not Found
-      %p No page was found at the path you have entered. Please ensure you have entered the correct URL otherwise contact the site admin.
+      %h2= t('.page_not_found')
+      %p= t('.description') 

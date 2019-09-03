@@ -1,4 +1,6 @@
 en:
+  untitled_page: Untitled Page
+  
   layouts:
     documentation:
       application:
@@ -10,7 +12,6 @@ en:
         query_placeholder: Search Documentation...
         
   documentation:
-    
     helpers:
       documentation_breadcrumb_for:
         default_root_link: Home
@@ -21,6 +22,12 @@ en:
       documentation_search_pagination:
         next: Next page
         previous: Previous page
+    shared:
+      not_found:
+        page_not_found: Page Not Found
+        description: 
+          No page was found at the path you have entered. Please ensure you 
+          have entered the correct URL otherwise contact the site admin.
         
     pages:
       index:

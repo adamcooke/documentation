@@ -23,7 +23,7 @@ module Documentation
       authorizer.check! :add_page, @page
 
       parent = @page
-      @page = Page.new(:title => "Untitled Page")
+      @page = Page.new(:title => I18n.t('.untitled_page'))
       if @page.parent = parent
         @page.parents = parent.breadcrumb
       end

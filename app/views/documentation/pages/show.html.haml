@@ -7,7 +7,7 @@
     %p.previewLink= link_to t('.view_in_website'), @page.preview_path, :class => 'button preview'
 
   %h1= @page.title
-  %p.updated= t('.last_updated', :timestamp => @page.updated_at.to_s(:long))
+  %p.updated= t('.last_updated', :timestamp => l(@page.updated_at, format: :long))
   .documentationMarkdown
     ~ preserve(documentation_content_for(@page))
 
