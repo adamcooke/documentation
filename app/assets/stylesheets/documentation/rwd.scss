@@ -1,2 +1,50 @@
-body {
+nav.pages {
+    @media (max-width: 768px) {
+        width: 30%;
+    }
+
+    @media (max-width: 550px) {
+        position: static;
+        margin-top: 62px;
+        width: 100%;
+        bottom: auto;
+    }
+
+    // div.inner ul li a {
+    //     @media (max-width: 768px) {
+    //         padding: 5px;
+    //     }
+    // }
+}
+section.content {
+    @media (max-width: 768px) {
+        width: 70%;
+        left: 30%;
+    }
+
+    @media (max-width: 550px) {
+        position: static;
+        width: 100%;
+        bottom: auto;
+    }
+}
+
+section.page {
+    @media (max-width: 768px) {
+        margin: 22px 6%;
+    }
+
+    p.adminButtons {
+        @media (max-width: 800px) {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    
+        a {
+            @media(max-width: 800px) {
+                margin: 10px;
+            }
+        }
+    }
 }
