@@ -3,7 +3,7 @@ nav.pages {
         width: 30%;
     }
 
-    @media (max-width: 550px) {
+    @media (max-width: 600px) {
         position: static;
         margin-top: 62px;
         width: 100%;
@@ -12,7 +12,7 @@ nav.pages {
     }
 
     div.inner ul li a {
-        @media (max-width: 550px) {
+        @media (max-width: 600px) {
             padding-left: 30px;
         }
     }
@@ -24,7 +24,7 @@ nav.pages {
         margin: 0 auto 15px auto;
     }
 
-    @media (min-width: 360px) and (max-width: 550px) {
+    @media (min-width: 360px) and (max-width: 600px) {
         margin: 0 0 15px 0;
         padding: 0 30px;
     }
@@ -45,7 +45,7 @@ section.content {
         left: 30%;
     }
 
-    @media (max-width: 550px) {
+    @media (max-width: 600px) {
         position: static;
         width: 100%;
         bottom: auto;
