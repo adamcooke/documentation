@@ -8,14 +8,28 @@ nav.pages {
         margin-top: 62px;
         width: 100%;
         bottom: auto;
+        border: none;
     }
 
-    // div.inner ul li a {
-    //     @media (max-width: 768px) {
-    //         padding: 5px;
-    //     }
-    // }
+    div.inner ul li a {
+        @media (max-width: 550px) {
+            padding-left: 30px;
+        }
+    }
 }
+
+.searchForm {
+    @media (min-width: 320px) and (max-width: 360px) {
+        width: 270px;
+        margin: 0 auto 15px auto;
+    }
+
+    @media (min-width: 360px) and (max-width: 550px) {
+        margin: 0 0 15px 0;
+        padding: 0 30px;
+    }
+}
+
 section.content {
     @media (max-width: 768px) {
         width: 70%;
@@ -26,6 +40,7 @@ section.content {
         position: static;
         width: 100%;
         bottom: auto;
+        overflow: hidden;
     }
 }
 
