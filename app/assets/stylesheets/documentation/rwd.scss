@@ -30,6 +30,15 @@ nav.pages {
     }
 }
 
+nav.breadcrumb {
+    padding: 0 35px;
+}
+
+nav.breadcrumb ul li a {
+    display: inline-block;
+    margin: 10px 0;
+}
+
 section.content {
     @media (max-width: 768px) {
         width: 70%;
