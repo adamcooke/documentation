@@ -48,6 +48,9 @@ header {
     a:hover {
       color: #fff;
     }
+    a + a {
+      margin-left: 15px;
+    }
   }
 }
 
