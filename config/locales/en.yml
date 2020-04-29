@@ -8,9 +8,8 @@ en:
         back_to_site: Back to site
       search:
         query_placeholder: Search Documentation...
-        
+
   documentation:
-    
     helpers:
       documentation_breadcrumb_for:
         default_root_link: Home
@@ -21,9 +20,10 @@ en:
       documentation_search_pagination:
         next: Next page
         previous: Previous page
-        
+
     pages:
       index:
+        page_title: Welcome
         welcome_title: Welcome to Documentation
         welcome_text: Choose a page from the menu on the left of the screen to begin.
         developer_tip:
@@ -32,29 +32,29 @@ en:
           Documentation configuration.
         create_root_page: Create new root page
         reorder_root_pages: Re-order root pages
-      
+
       show:
         view_in_website: View in website
         last_updated: Last updated on %{timestamp}
-      
+
       admin_buttons:
         new: New page
         edit: Edit page
         reorder: Re-order children
         delete: Delete page
-      
+
       form:
         title_placeholder: Enter a title for this page
-        content_placeholder: 'Use Markdown to enter page content'
+        content_placeholder: "Use Markdown to enter page content"
         permalink_placeholder: Automatically generated if left blank
         add_screenshot: Add Screenshot
         save: Save Page
-      
+
       positioning:
         reorder_root_pages_title: Re-order root pages
         back_to_page: Back to page
         back_to_homepage: Back to homepage
-        
+
       search:
         title: "Search results for '%{query}'"
         no_results: "No pages were found matching '%{query}'"

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'haml'
 require 'coffee-rails'
 require 'sass-rails'

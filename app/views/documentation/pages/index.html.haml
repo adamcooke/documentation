@@ -1,3 +1,4 @@
+- @page_title = t('.page_title')
 %section.welcome
   %h1= t('.welcome_title')
   %h2= t('.welcome_text')
@@ -5,7 +6,7 @@
   - if Documentation.config.developer_tips
     .override
       %p= t('.developer_tip').html_safe
-      
+
   %p.new
     - if authorizer.can_add_page?(nil)
       = link_to t('.create_root_page'), new_page_path, :class => 'button new'
