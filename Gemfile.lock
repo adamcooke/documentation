@@ -117,7 +117,7 @@ GEM
       mini_portile2 (~> 2.4.0)
     pygments.rb (1.2.1)
       multi_json (>= 1.0.0)
-    rack (2.2.2)
+    rack (2.2.3)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (6.0.2.2)
