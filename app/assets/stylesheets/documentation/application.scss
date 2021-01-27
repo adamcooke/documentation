@@ -194,15 +194,13 @@ section.page {
     padding: 25px 0 0 0;
   }
   form.reordering ul li {
-    background: #f5f7fb;
     font-size: 1.1em;
     margin-bottom: 7px;
-    padding: 10px;
     cursor: pointer;
     border: 1px dashed #748098;
     background: image-url("documentation/page.svg") #f5f7fb no-repeat 16px 10px;
     background-size: 14px;
-    padding-left: 40px;
+    padding: 10px 10px 10px 40px;
   }
 }
 
@@ -214,7 +212,6 @@ input.button {
   display: inline-block;
   border: 2px solid lighten(#9357b0, 20%);
   text-decoration: none;
-  background: #fff;
   color: #9357b0;
   font-weight: 500;
   padding: 3px 10px;
